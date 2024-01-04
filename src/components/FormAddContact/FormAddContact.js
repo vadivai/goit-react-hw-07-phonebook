@@ -18,7 +18,7 @@ export const FormAddContact = () => {
     <Formik
       initialValues={{
         name: '',
-        number: '',
+        phone: '',
       }}
       validationSchema={contactsValidation}
       onSubmit={(values, actions) => {
@@ -26,14 +26,14 @@ export const FormAddContact = () => {
           contacts.find(
             contact =>
               contact.name.toLowerCase() === values.name.toLowerCase() &&
-              contact.number === values.number
+              contact.phone === values.phone
           )
         ) {
           return alert(
-            `${values.name} with ${values.number} is already in contacts`
+            `${values.name} with ${values.phone} is already in contacts`
           );
         }
-        dispatch(addContact({ values }));
+        dispatch(addContact(values));
         actions.resetForm();
       }}
     >

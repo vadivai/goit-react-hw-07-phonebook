@@ -5,7 +5,7 @@ import { Section } from './App.styled';
 import { Filter } from 'components/Filter/Filter';
 import { useDispatch } from 'react-redux';
 // import { selectContacts } from 'redux/selectors';
-import { fetchAllContacts } from '../../redux/operations';
+import { fetchContacts } from '../../redux/operations';
 import { useEffect } from 'react';
 
 export const App = () => {
@@ -13,7 +13,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
