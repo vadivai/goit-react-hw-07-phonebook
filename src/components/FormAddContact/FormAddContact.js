@@ -7,7 +7,7 @@ import { selectContacts } from '../../redux/selectors';
 
 const contactsValidation = Yup.object().shape({
   name: Yup.string().min(4, 'Too Short!').required('Required'),
-  number: Yup.string().min(7, 'At least 7').required('Required'),
+  phone: Yup.string().min(7, 'At least 7').required('Required'),
 });
 
 export const FormAddContact = () => {
@@ -44,7 +44,7 @@ export const FormAddContact = () => {
         </FormGroup>
         <FormGroup>
           Phone
-          <Field type="tel" name="number" placeholder="Введіть телефон" />
+          <Field type="tel" name="phone" placeholder="Введіть телефон" />
           <Button type="submit">Add contact</Button>
         </FormGroup>
       </Form>
