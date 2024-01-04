@@ -2,8 +2,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Field, FormGroup, Button } from './FormAddContact.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
-import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from '../../redux/operations';
 import { selectContacts } from '../../redux/selectors';
 
 const contactsValidation = Yup.object().shape({
@@ -34,7 +33,7 @@ export const FormAddContact = () => {
             `${values.name} with ${values.number} is already in contacts`
           );
         }
-        dispatch(addContact({ ...values, id: nanoid() }));
+        dispatch(addContact({ values }));
         actions.resetForm();
       }}
     >
